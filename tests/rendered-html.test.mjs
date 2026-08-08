@@ -32,6 +32,9 @@ test("server-renders David's portfolio and featured case studies", async () => {
   assert.match(html, /<title>David Sanchez — Full Stack Developer<\/title>/i);
   assert.match(html, /Odissey Technology/);
   assert.match(html, /Eter Perfume Catalog/);
+  assert.match(html, /\/projects\/eter\/eter-catalog\.webp/);
+  assert.match(html, /Eter Perfume Catalog screenshots/);
+  assert.match(html, /Show Products admin/);
   assert.match(html, /NoirVault/);
   assert.match(html, /\/projects\/noirvault\/noirvault-home\.webp/);
   assert.match(html, /NoirVault screenshots/);
@@ -58,6 +61,7 @@ test("keeps bilingual, theme, and responsive portfolio behavior", async () => {
   assert.match(page, /Código privado · Disponible para conversar/);
   assert.match(page, /Checkout idempotente con reservas transaccionales/);
   assert.match(page, /noirvault-admin\.webp/);
+  assert.match(page, /eter-admin-orders\.webp/);
   assert.match(page, /setActiveGallery/);
   assert.match(layout, /David Sanchez — Full Stack Developer/);
   assert.match(css, /:root\[data-theme="dark"\]/);

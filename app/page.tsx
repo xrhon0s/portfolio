@@ -37,6 +37,33 @@ const projects = [
       es: ["Flipbook responsive con búsqueda en tiempo real y filtros olfativos", "Inventario, pedidos, administración y RLS sobre Supabase", "Intérprete de fichas y optimización autenticada de imágenes WebP"],
     },
     stack: ["React", "TypeScript", "Supabase", "Zustand", "Framer Motion", "Sharp"],
+    gallery: [
+      {
+        src: "/projects/eter/eter-catalog.webp",
+        label: { en: "Catalog", es: "Catálogo" },
+        alt: { en: "Eter fragrance catalog presenting two perfumes in an interactive editorial layout", es: "Catálogo de fragancias Eter con dos perfumes en una composición editorial interactiva" },
+      },
+      {
+        src: "/projects/eter/eter-details.webp",
+        label: { en: "Details", es: "Detalles" },
+        alt: { en: "Eter perfume detail dialog with inventory, fragrance notes, attributes, and cart action", es: "Detalle de perfume Eter con inventario, notas olfativas, atributos y acción de carrito" },
+      },
+      {
+        src: "/projects/eter/eter-order.webp",
+        label: { en: "Order flow", es: "Pedido" },
+        alt: { en: "Eter customer order drawer with contact, delivery address, and WhatsApp checkout", es: "Panel de pedido Eter con contacto, dirección de entrega y checkout por WhatsApp" },
+      },
+      {
+        src: "/projects/eter/eter-admin-products.webp",
+        label: { en: "Products admin", es: "Admin productos" },
+        alt: { en: "Eter product administration with inventory controls and a perfume data interpreter", es: "Administración de productos Eter con controles de inventario e intérprete de fichas de perfume" },
+      },
+      {
+        src: "/projects/eter/eter-admin-orders.webp",
+        label: { en: "Orders admin", es: "Admin pedidos" },
+        alt: { en: "Eter order management dashboard with customer request status and WhatsApp actions", es: "Panel de pedidos Eter con estado de solicitudes y acciones por WhatsApp" },
+      },
+    ],
     evidence: { en: "21 test files · 6 migrations", es: "21 archivos de pruebas · 6 migraciones" },
     links: [],
     private: true,
@@ -307,7 +334,7 @@ export default function Home() {
                   <img src={screen.src} alt={screen.alt[language]} width="1600" height="923" loading="lazy" decoding="async" />
                   <div className="media-toolbar">
                     <span className="media-caption">{screen.label[language]} <b>{String(activeScreen + 1).padStart(2, "0")}/{String(gallery.length).padStart(2, "0")}</b></span>
-                    <div className="media-controls" role="group" aria-label={language === "en" ? "NoirVault screenshots" : "Capturas de NoirVault"}>
+                    <div className="media-controls" role="group" aria-label={language === "en" ? `${project.title} screenshots` : `Capturas de ${project.title}`}>
                       {gallery.map((item, index) => (
                         <button
                           type="button"
