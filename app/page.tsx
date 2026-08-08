@@ -204,7 +204,7 @@ const copy = {
     intro: "I’m David Sanchez. I design and build responsive interfaces, reliable APIs, real-time products, and practical AI experiences.",
     explore: "Explore selected work",
     github: "GitHub profile",
-    photo: "Photo space reserved",
+    photo: "David Sanchez · Full-stack developer",
     system: "Available",
     capabilities: ["React interfaces", "Node.js APIs", "AI integration", "Real-time products", "Clean architecture", "Responsive design"],
     workEyebrow: "Selected work · Proof over promises",
@@ -243,7 +243,7 @@ const copy = {
     intro: "Soy David Sanchez. Diseño y desarrollo interfaces responsive, APIs confiables, productos en tiempo real y experiencias prácticas con IA.",
     explore: "Explorar proyectos",
     github: "Perfil de GitHub",
-    photo: "Espacio reservado para foto",
+    photo: "David Sanchez · Desarrollador full-stack",
     system: "Disponible",
     capabilities: ["Interfaces React", "APIs con Node.js", "Integración de IA", "Productos en tiempo real", "Arquitectura limpia", "Diseño responsive"],
     workEyebrow: "Proyectos seleccionados · Evidencia sobre promesas",
@@ -336,10 +336,8 @@ export default function Home() {
         <div className="signal-card" aria-label={t.photo}>
           <div className="signal-header"><span>PORTRAIT_INPUT</span><span className="blink">● REC</span></div>
           <div className="portrait-stage">
+            <img className="portrait-photo" src="/profile/david-sanchez.webp" alt={t.photo} width="1023" height="1537" />
             <div className="scanner" aria-hidden="true" />
-            <div className="portrait-ring ring-a" aria-hidden="true" />
-            <div className="portrait-ring ring-b" aria-hidden="true" />
-            <span className="portrait-initials">DS</span>
             <span className="portrait-note">{t.photo}</span>
           </div>
           <div className="signal-footer"><span>{t.system}</span><span>© 2026</span></div>
