@@ -10,6 +10,8 @@
   --acid: #d4ff3f;
   --violet: #ad9cff;
   --cyan: #58dfff;
+  --amber: #ffbc5c;
+  --rose: #ff8fa8;
   --invert: #f7f4ea;
   color-scheme: light;
 }
@@ -96,6 +98,8 @@ a { text-decoration: none; }
 .project-card:hover { transform: translateY(-5px); box-shadow: 9px 9px 0 var(--accent); }
 .project-card.violet { --accent: var(--violet); }
 .project-card.cyan { --accent: var(--cyan); }
+.project-card.amber { --accent: var(--amber); }
+.project-card.rose { --accent: var(--rose); }
 .project-index { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 22px 0; border-right: 1px solid var(--ink); background: var(--accent); }
 .project-index span { font: 800 1rem/1 var(--font-geist-mono), monospace; }
 .project-index small { writing-mode: vertical-rl; transform: rotate(180deg); font: 650 .52rem/1 var(--font-geist-mono), monospace; letter-spacing: .14em; }
@@ -116,8 +120,11 @@ a { text-decoration: none; }
 .project-highlights li::before { content: "//"; color: #6f821c; margin-right: 9px; font: 700 .65rem/1 var(--font-geist-mono), monospace; }
 .stack-list { display: flex; flex-wrap: wrap; gap: 6px; }
 .stack-list span { padding: 7px 9px; border: 1px solid var(--line); border-radius: 2px; font: 600 .58rem/1 var(--font-geist-mono), monospace; }
+.project-evidence { display: flex; align-items: center; gap: 8px; margin: 17px 0 0; color: var(--muted); font: 650 .61rem/1.4 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .055em; }
+.project-evidence span { width: 18px; height: 18px; display: inline-grid; place-items: center; flex: 0 0 auto; border-radius: 50%; background: var(--accent); color: #11110f; font-size: .65rem; }
 .project-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: auto; padding-top: 30px; }
 .project-links a { padding-bottom: 3px; border-bottom: 1px solid var(--ink); font-size: .75rem; font-weight: 750; }
+.private-repository { display: inline-flex; align-items: center; gap: 8px; padding: 9px 11px; border: 1px solid var(--line); background: color-mix(in srgb, var(--accent) 18%, transparent); font: 650 .61rem/1.2 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .055em; }
 
 .about-section { position: relative; overflow: hidden; padding: 145px 0; background: #11120f; color: #f2f0e8; }
 .about-orb { position: absolute; width: 580px; height: 580px; left: -270px; top: -160px; border: 1px solid #4e5146; border-radius: 50%; box-shadow: 0 0 0 80px rgba(212,255,63,.025), 0 0 0 160px rgba(212,255,63,.018); }

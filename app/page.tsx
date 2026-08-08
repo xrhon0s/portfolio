@@ -8,6 +8,60 @@ type Theme = "light" | "dark";
 const projects = [
   {
     number: "01",
+    title: "Odissey Technology",
+    type: { en: "Full-stack commerce platform", es: "Plataforma ecommerce full-stack" },
+    description: {
+      en: "A Spanish-first ecommerce system for a Colombian technology retailer, covering the journey from product discovery to payment review and fulfillment.",
+      es: "Un sistema de ecommerce en español para una tienda de tecnología colombiana, desde el descubrimiento del producto hasta la verificación del pago y el despacho.",
+    },
+    highlights: {
+      en: ["Idempotent checkout with transactional inventory reservations", "Protected operations for catalog, orders, payments, and shipping", "Customer accounts, API protection, transactional email, and technical SEO"],
+      es: ["Checkout idempotente con reservas transaccionales de inventario", "Operación protegida de catálogo, pedidos, pagos y envíos", "Cuentas, protección de APIs, correo transaccional y SEO técnico"],
+    },
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle", "Supabase", "Playwright"],
+    evidence: { en: "29 test files · 14 migrations", es: "29 archivos de pruebas · 14 migraciones" },
+    links: [],
+    private: true,
+    accent: "acid",
+  },
+  {
+    number: "02",
+    title: "Eter Perfume Catalog",
+    type: { en: "Interactive retail application", es: "Aplicación comercial interactiva" },
+    description: {
+      en: "A digital-magazine fragrance experience connected to real catalog, inventory, order, image, and administrative operations.",
+      es: "Una experiencia de perfumería tipo revista digital conectada con operaciones reales de catálogo, inventario, pedidos, imágenes y administración.",
+    },
+    highlights: {
+      en: ["Responsive flipbook with real-time search and fragrance filters", "Supabase inventory, order requests, admin access, and Row Level Security", "Product-text interpreter and authenticated WebP image optimization"],
+      es: ["Flipbook responsive con búsqueda en tiempo real y filtros olfativos", "Inventario, pedidos, administración y RLS sobre Supabase", "Intérprete de fichas y optimización autenticada de imágenes WebP"],
+    },
+    stack: ["React", "TypeScript", "Supabase", "Zustand", "Framer Motion", "Sharp"],
+    evidence: { en: "21 test files · 6 migrations", es: "21 archivos de pruebas · 6 migraciones" },
+    links: [],
+    private: true,
+    accent: "violet",
+  },
+  {
+    number: "03",
+    title: "NoirVault",
+    type: { en: "Custom commerce system", es: "Sistema de comercio personalizado" },
+    description: {
+      en: "A premium streetwear storefront backed by persistent customer, cart, catalog, payment, order, inventory, and administrative workflows.",
+      es: "Una tienda premium de streetwear respaldada por flujos persistentes de clientes, carrito, catálogo, pagos, pedidos, inventario y administración.",
+    },
+    highlights: {
+      en: ["Signed Wompi checkout and timing-safe webhook verification", "Transactional, idempotent paid-order creation and inventory updates", "Secure customer sessions, wishlists, order history, and localized admin"],
+      es: ["Checkout firmado con Wompi y verificación segura de webhooks", "Creación transaccional e idempotente de pedidos e inventario", "Sesiones seguras, favoritos, historial y administración localizada"],
+    },
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Wompi", "Node.js Crypto"],
+    evidence: { en: "7 passing tests · Prisma migration", es: "7 pruebas aprobadas · Migración Prisma" },
+    links: [],
+    private: true,
+    accent: "cyan",
+  },
+  {
+    number: "04",
     title: "NutriEdu",
     type: { en: "Full-stack product", es: "Producto full-stack" },
     description: {
@@ -23,26 +77,12 @@ const projects = [
       { label: { en: "Backend", es: "Backend" }, href: "https://github.com/xrhon0s/NutriEdu" },
       { label: { en: "Frontend", es: "Frontend" }, href: "https://github.com/xrhon0s/NutriEdu-frontend" },
     ],
-    accent: "acid",
+    evidence: { en: "Public full-stack source", es: "Código full-stack público" },
+    private: false,
+    accent: "amber",
   },
   {
-    number: "02",
-    title: "Perfume Catalog",
-    type: { en: "Interactive frontend", es: "Frontend interactivo" },
-    description: {
-      en: "A responsive digital-magazine experience for exploring fragrances through live search, filters, page navigation, and detailed product views.",
-      es: "Una experiencia responsive tipo revista digital para explorar fragancias con búsqueda en vivo, filtros, navegación y vistas detalladas.",
-    },
-    highlights: {
-      en: ["Magazine-inspired browsing experience", "Real-time search and multi-category filters", "Reusable state and component architecture"],
-      es: ["Experiencia inspirada en una revista digital", "Búsqueda en tiempo real y filtros multicategoría", "Arquitectura reutilizable de estado y componentes"],
-    },
-    stack: ["React", "TypeScript", "Zustand", "Framer Motion", "Vite"],
-    links: [{ label: { en: "Repository", es: "Repositorio" }, href: "https://github.com/xrhon0s/Perfume_Catalog" }],
-    accent: "violet",
-  },
-  {
-    number: "03",
+    number: "05",
     title: "Task Manager API",
     type: { en: "Backend architecture", es: "Arquitectura backend" },
     description: {
@@ -55,7 +95,9 @@ const projects = [
     },
     stack: ["Node.js", "Express", "REST", "JavaScript"],
     links: [{ label: { en: "Repository", es: "Repositorio" }, href: "https://github.com/xrhon0s/task-manager-api" }],
-    accent: "cyan",
+    evidence: { en: "Public layered API source", es: "API pública con arquitectura por capas" },
+    private: false,
+    accent: "rose",
   },
 ];
 
@@ -237,7 +279,12 @@ export default function Home() {
                 <p className="project-description">{project.description[language]}</p>
                 <ul className="project-highlights">{project.highlights[language].map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
                 <div className="stack-list" aria-label={`${project.title} technologies`}>{project.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
-                <div className="project-links">{project.links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label[language]} <span aria-hidden="true">↗</span></a>)}</div>
+                <p className="project-evidence"><span aria-hidden="true">✓</span> {project.evidence[language]}</p>
+                <div className="project-links">
+                  {project.private ? (
+                    <span className="private-repository"><span aria-hidden="true">⌁</span> {language === "en" ? "Private source · Available to discuss" : "Código privado · Disponible para conversar"}</span>
+                  ) : project.links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label[language]} <span aria-hidden="true">↗</span></a>)}
+                </div>
               </div>
             </article>
           ))}
