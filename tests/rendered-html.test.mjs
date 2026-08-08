@@ -41,6 +41,9 @@ test("server-renders David's portfolio and featured case studies", async () => {
   assert.match(html, /Show Catalog/);
   assert.match(html, /Private source · Available to discuss/);
   assert.match(html, /NutriEdu/);
+  assert.match(html, /\/projects\/nutriedu\/nutriedu-home\.webp/);
+  assert.match(html, /NutriEdu screenshots/);
+  assert.match(html, /Show Weekly planner/);
   assert.match(html, /Task Manager API/);
   assert.doesNotMatch(
     html,
@@ -62,6 +65,7 @@ test("keeps bilingual, theme, and responsive portfolio behavior", async () => {
   assert.match(page, /Checkout idempotente con reservas transaccionales/);
   assert.match(page, /noirvault-admin\.webp/);
   assert.match(page, /eter-admin-orders\.webp/);
+  assert.match(page, /nutriedu-admin\.webp/);
   assert.match(page, /setActiveGallery/);
   assert.match(layout, /David Sanchez — Full Stack Developer/);
   assert.match(css, /:root\[data-theme="dark"\]/);

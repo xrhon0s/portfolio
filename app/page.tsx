@@ -127,6 +127,43 @@ const projects = [
       es: ["Autenticación JWT y flujos administrativos por roles", "Filtros personalizados de recetas e ingredientes", "Recuperación de contraseña y correo transaccional"],
     },
     stack: ["React", "Node.js", "PostgreSQL", "Express", "Tailwind"],
+    gallery: [
+      {
+        src: "/projects/nutriedu/nutriedu-home.webp",
+        label: { en: "Landing", es: "Inicio" },
+        alt: { en: "NutriEdu landing page introducing personalized recipes for dietary restrictions", es: "Página de inicio de NutriEdu con recetas personalizadas para restricciones alimentarias" },
+      },
+      {
+        src: "/projects/nutriedu/nutriedu-content.webp",
+        label: { en: "Nutrition guide", es: "Guía nutricional" },
+        alt: { en: "NutriEdu meal categories, practical nutrition tips, and community testimonials", es: "Categorías de comida, consejos nutricionales y testimonios de la comunidad NutriEdu" },
+      },
+      {
+        src: "/projects/nutriedu/nutriedu-login.webp",
+        label: { en: "Authentication", es: "Autenticación" },
+        alt: { en: "NutriEdu secure sign-in screen for personalized nutrition profiles", es: "Inicio de sesión seguro de NutriEdu para perfiles nutricionales personalizados" },
+      },
+      {
+        src: "/projects/nutriedu/nutriedu-recipes.webp",
+        label: { en: "Safe recipes", es: "Recetas seguras" },
+        alt: { en: "NutriEdu recipe catalog filtered by health score and calorie range", es: "Catálogo de recetas NutriEdu filtrado por nivel de salud y rango de calorías" },
+      },
+      {
+        src: "/projects/nutriedu/nutriedu-profile.webp",
+        label: { en: "Clinical profile", es: "Perfil clínico" },
+        alt: { en: "NutriEdu clinical profile for selecting and saving dietary restrictions", es: "Perfil clínico de NutriEdu para seleccionar y guardar restricciones alimentarias" },
+      },
+      {
+        src: "/projects/nutriedu/nutriedu-planner.webp",
+        label: { en: "Weekly planner", es: "Plan semanal" },
+        alt: { en: "NutriEdu weekly meal planner with safe recipes and progress tracking", es: "Planificador semanal de NutriEdu con recetas seguras y seguimiento del progreso" },
+      },
+      {
+        src: "/projects/nutriedu/nutriedu-admin.webp",
+        label: { en: "Administration", es: "Administración" },
+        alt: { en: "NutriEdu administration panel for managing recipes and ingredients", es: "Panel administrativo de NutriEdu para gestionar recetas e ingredientes" },
+      },
+    ],
     links: [
       { label: { en: "Backend", es: "Backend" }, href: "https://github.com/xrhon0s/NutriEdu" },
       { label: { en: "Frontend", es: "Frontend" }, href: "https://github.com/xrhon0s/NutriEdu-frontend" },
