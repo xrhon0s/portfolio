@@ -55,6 +55,33 @@ const projects = [
       es: ["Checkout firmado con Wompi y verificación segura de webhooks", "Creación transaccional e idempotente de pedidos e inventario", "Sesiones seguras, favoritos, historial y administración localizada"],
     },
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Wompi", "Node.js Crypto"],
+    gallery: [
+      {
+        src: "/projects/noirvault/noirvault-home.webp",
+        label: { en: "Storefront", es: "Tienda" },
+        alt: { en: "NoirVault storefront with a streetwear hero and featured collections", es: "Tienda NoirVault con portada de streetwear y colecciones destacadas" },
+      },
+      {
+        src: "/projects/noirvault/noirvault-catalog.webp",
+        label: { en: "Catalog", es: "Catálogo" },
+        alt: { en: "NoirVault product catalog with prices, ratings, variants, and wishlists", es: "Catálogo NoirVault con precios, calificaciones, variantes y favoritos" },
+      },
+      {
+        src: "/projects/noirvault/noirvault-cart.webp",
+        label: { en: "Cart", es: "Carrito" },
+        alt: { en: "NoirVault cart with product variants, quantities, discount code, and order summary", es: "Carrito NoirVault con variantes, cantidades, descuento y resumen del pedido" },
+      },
+      {
+        src: "/projects/noirvault/noirvault-admin.webp",
+        label: { en: "Operations", es: "Operación" },
+        alt: { en: "NoirVault administration dashboard showing orders, inventory risk, and launch readiness", es: "Panel administrativo NoirVault con pedidos, riesgo de inventario y preparación de lanzamiento" },
+      },
+      {
+        src: "/projects/noirvault/noirvault-account.webp",
+        label: { en: "Account", es: "Cuenta" },
+        alt: { en: "NoirVault customer account with secure login, orders, preferences, and delivery features", es: "Cuenta de cliente NoirVault con acceso seguro, pedidos, preferencias y entregas" },
+      },
+    ],
     evidence: { en: "7 passing tests · Prisma migration", es: "7 pruebas aprobadas · Migración Prisma" },
     links: [],
     private: true,
@@ -185,6 +212,7 @@ const copy = {
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
   const [theme, setTheme] = useState<Theme>("light");
+  const [activeGallery, setActiveGallery] = useState<Record<string, number>>({});
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("portfolio-language") as Language | null;
@@ -266,13 +294,41 @@ export default function Home() {
           <p>{t.workIntro}</p>
         </div>
         <div className="project-list">
-          {projects.map((project) => (
-            <article className={`project-card ${project.accent}`} key={project.title}>
+          {projects.map((project) => {
+            const gallery = "gallery" in project ? project.gallery : [];
+            const activeScreen = activeGallery[project.title] ?? 0;
+            const screen = gallery[activeScreen];
+
+            return (
+            <article className={`project-card ${project.accent} ${gallery.length ? "with-gallery" : ""}`} key={project.title}>
               <div className="project-index"><span>{project.number}</span><small>CASE_STUDY</small></div>
-              <div className="project-visual" aria-hidden="true">
-                <div className="visual-grid" />
-                <div className="visual-window"><div className="window-bar"><i /><i /><i /></div><div className="window-body"><span /><span /><span /><span /></div></div>
-              </div>
+              {screen ? (
+                <div className="project-visual project-media">
+                  <img src={screen.src} alt={screen.alt[language]} width="1600" height="923" loading="lazy" decoding="async" />
+                  <div className="media-toolbar">
+                    <span className="media-caption">{screen.label[language]} <b>{String(activeScreen + 1).padStart(2, "0")}/{String(gallery.length).padStart(2, "0")}</b></span>
+                    <div className="media-controls" role="group" aria-label={language === "en" ? "NoirVault screenshots" : "Capturas de NoirVault"}>
+                      {gallery.map((item, index) => (
+                        <button
+                          type="button"
+                          className={index === activeScreen ? "active" : ""}
+                          key={item.src}
+                          onClick={() => setActiveGallery((current) => ({ ...current, [project.title]: index }))}
+                          aria-label={`${language === "en" ? "Show" : "Mostrar"} ${item.label[language]}`}
+                          aria-pressed={index === activeScreen}
+                        >
+                          {index + 1}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="project-visual" aria-hidden="true">
+                  <div className="visual-grid" />
+                  <div className="visual-window"><div className="window-bar"><i /><i /><i /></div><div className="window-body"><span /><span /><span /><span /></div></div>
+                </div>
+              )}
               <div className="project-content">
                 <p className="project-type">{project.type[language]}</p>
                 <h3>{project.title}</h3>
@@ -287,7 +343,7 @@ export default function Home() {
                 </div>
               </div>
             </article>
-          ))}
+          )})}
         </div>
       </section>
 
