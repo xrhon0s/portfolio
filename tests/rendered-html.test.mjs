@@ -49,7 +49,7 @@ test("server-renders David's portfolio and featured case studies", async () => {
   assert.match(html, /\/projects\/nutriedu\/nutriedu-home\.webp/);
   assert.match(html, /NutriEdu screenshots/);
   assert.match(html, /Show Weekly planner/);
-  assert.match(html, /Task Manager API/);
+  assert.doesNotMatch(html, /Task Manager API|task-manager-api/i);
   assert.doesNotMatch(
     html,
     /github\.com\/xrhon0s\/(?:Odissey_Technology|Perfume_Catalog|noirvault)/i,

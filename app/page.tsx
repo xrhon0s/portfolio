@@ -204,24 +204,6 @@ const projects = [
     private: false,
     accent: "amber",
   },
-  {
-    number: "05",
-    title: "Task Manager API",
-    type: { en: "Backend architecture", es: "Arquitectura backend" },
-    description: {
-      en: "A REST API built around clear boundaries: routes, controllers, services, validation, domain constants, and centralized errors.",
-      es: "Una API REST construida con límites claros: rutas, controladores, servicios, validación, constantes de dominio y errores centralizados.",
-    },
-    highlights: {
-      en: ["Complete task CRUD and status workflows", "Layered architecture and separation of concerns", "Request validation and centralized errors"],
-      es: ["CRUD completo y flujos de estado de tareas", "Arquitectura por capas y separación de responsabilidades", "Validación de solicitudes y errores centralizados"],
-    },
-    stack: ["Node.js", "Express", "REST", "JavaScript"],
-    links: [{ label: { en: "Repository", es: "Repositorio" }, href: "https://github.com/xrhon0s/task-manager-api" }],
-    evidence: { en: "Public layered API source", es: "API pública con arquitectura por capas" },
-    private: false,
-    accent: "rose",
-  },
 ];
 
 const copy = {
