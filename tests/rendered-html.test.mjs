@@ -3,24 +3,15 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
+  const html = await readFile(
+    new URL("../.next/server/app/index.html", import.meta.url),
+    "utf8",
   );
+
+  return new Response(html, {
+    status: 200,
+    headers: { "content-type": "text/html; charset=utf-8" },
+  });
 }
 
 test("server-renders David's portfolio and featured case studies", async () => {
@@ -31,22 +22,22 @@ test("server-renders David's portfolio and featured case studies", async () => {
   const html = await response.text();
   assert.match(html, /<title>David Sanchez — Full Stack Developer<\/title>/i);
   assert.match(html, /Odissey Technology/);
-  assert.match(html, /\/projects\/odissey\/odissey-home\.webp/);
+  assert.match(html, /odissey-home\.webp/);
   assert.match(html, /Odissey Technology screenshots/);
   assert.match(html, /Show Product detail/);
-  assert.match(html, /\/profile\/david-sanchez\.webp/);
+  assert.match(html, /david-sanchez\.webp/);
   assert.match(html, /David Sanchez · Full-stack developer/);
   assert.match(html, /Eter Perfume Catalog/);
-  assert.match(html, /\/projects\/eter\/eter-catalog\.webp/);
+  assert.match(html, /eter-catalog\.webp/);
   assert.match(html, /Eter Perfume Catalog screenshots/);
   assert.match(html, /Show Products admin/);
   assert.match(html, /NoirVault/);
-  assert.match(html, /\/projects\/noirvault\/noirvault-home\.webp/);
+  assert.match(html, /noirvault-home\.webp/);
   assert.match(html, /NoirVault screenshots/);
   assert.match(html, /Show Catalog/);
   assert.match(html, /Private source · Available to discuss/);
   assert.match(html, /NutriEdu/);
-  assert.match(html, /\/projects\/nutriedu\/nutriedu-home\.webp/);
+  assert.match(html, /nutriedu-home\.webp/);
   assert.match(html, /NutriEdu screenshots/);
   assert.match(html, /Show Weekly planner/);
   assert.doesNotMatch(html, /Task Manager API|task-manager-api/i);

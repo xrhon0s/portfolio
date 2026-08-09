@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type Language = "en" | "es";
 type Theme = "light" | "dark";
@@ -296,6 +297,8 @@ export default function Home() {
     const savedLanguage = localStorage.getItem("portfolio-language") as Language | null;
     const initialLanguage = savedLanguage ?? (navigator.language.toLowerCase().startsWith("es") ? "es" : "en");
     const initialTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    // Browser preferences are intentionally synchronized after hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLanguage(initialLanguage);
     setTheme(initialTheme);
     document.documentElement.lang = initialLanguage;
@@ -350,7 +353,7 @@ export default function Home() {
         <div className="signal-card" aria-label={t.photo}>
           <div className="signal-header"><span>PORTRAIT_INPUT</span><span className="blink">● REC</span></div>
           <div className="portrait-stage">
-            <img className="portrait-photo" src="/profile/david-sanchez.webp" alt={t.photo} width="1023" height="1537" />
+            <Image className="portrait-photo" src="/profile/david-sanchez.webp" alt={t.photo} width={1023} height={1537} priority sizes="(max-width: 920px) 80vw, 385px" />
             <div className="scanner" aria-hidden="true" />
             <span className="portrait-note">{t.photo}</span>
           </div>
@@ -380,7 +383,7 @@ export default function Home() {
               <div className="project-index"><span>{project.number}</span><small>CASE_STUDY</small></div>
               {screen ? (
                 <div className="project-visual project-media">
-                  <img src={screen.src} alt={screen.alt[language]} width="1600" height="923" loading="lazy" decoding="async" />
+                  <Image src={screen.src} alt={screen.alt[language]} width={1600} height={923} loading="lazy" sizes="(max-width: 920px) calc(100vw - 90px), 46vw" />
                   <div className="media-toolbar">
                     <span className="media-caption">{screen.label[language]} <b>{String(activeScreen + 1).padStart(2, "0")}/{String(gallery.length).padStart(2, "0")}</b></span>
                     <div className="media-controls" role="group" aria-label={language === "en" ? `${project.title} screenshots` : `Capturas de ${project.title}`}>

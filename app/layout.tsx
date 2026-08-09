@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const deploymentHost =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+  process.env.VERCEL_URL ??
+  "david-sanchez-portfolio.dsancheztaba66.chatgpt.site";
+
+const deploymentUrl = deploymentHost.startsWith("http")
+  ? deploymentHost
+  : `https://${deploymentHost}`;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://david-sanchez-portfolio.dsancheztaba66.chatgpt.site"),
+  metadataBase: new URL(deploymentUrl),
   title: "David Sanchez — Full Stack Developer",
   description:
     "Portfolio of David Sanchez Tabarez, a full-stack developer building React, Node.js, real-time, and AI-powered products.",
