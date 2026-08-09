@@ -19,6 +19,38 @@ const projects = [
       es: ["Checkout idempotente con reservas transaccionales de inventario", "Operación protegida de catálogo, pedidos, pagos y envíos", "Cuentas, protección de APIs, correo transaccional y SEO técnico"],
     },
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle", "Supabase", "Playwright"],
+    gallery: [
+      {
+        src: "/projects/odissey/odissey-home.webp",
+        label: { en: "Storefront", es: "Tienda" },
+        alt: { en: "Odissey Technology storefront featuring mobile accessories and nationwide shipping", es: "Tienda Odissey Technology con accesorios móviles y envíos nacionales" },
+      },
+      {
+        src: "/projects/odissey/odissey-catalog.webp",
+        label: { en: "Catalog", es: "Catálogo" },
+        alt: { en: "Odissey Technology product catalog with availability and pricing", es: "Catálogo de Odissey Technology con disponibilidad y precios" },
+      },
+      {
+        src: "/projects/odissey/odissey-account.webp",
+        label: { en: "Customer account", es: "Cuenta cliente" },
+        alt: { en: "Odissey Technology sign-in and optional customer account registration", es: "Inicio de sesión y registro opcional de clientes en Odissey Technology" },
+      },
+      {
+        src: "/projects/odissey/odissey-product.webp",
+        label: { en: "Product detail", es: "Detalle producto" },
+        alt: { en: "Odissey Technology product page with variants, inventory, pricing, and cart controls", es: "Producto Odissey Technology con variantes, inventario, precios y controles de carrito" },
+      },
+      {
+        src: "/projects/odissey/odissey-cart.webp",
+        label: { en: "Cart", es: "Carrito" },
+        alt: { en: "Odissey Technology cart with item details and checkout summary", es: "Carrito de Odissey Technology con detalle de artículos y resumen del checkout" },
+      },
+      {
+        src: "/projects/odissey/odissey-admin.webp",
+        label: { en: "Operations", es: "Operación" },
+        alt: { en: "Odissey Technology administration dashboard for orders, payments, inventory, and products", es: "Panel administrativo de Odissey Technology para pedidos, pagos, inventario y productos" },
+      },
+    ],
     evidence: { en: "29 test files · 14 migrations", es: "29 archivos de pruebas · 14 migraciones" },
     links: [],
     private: true,

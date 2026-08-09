@@ -31,6 +31,9 @@ test("server-renders David's portfolio and featured case studies", async () => {
   const html = await response.text();
   assert.match(html, /<title>David Sanchez — Full Stack Developer<\/title>/i);
   assert.match(html, /Odissey Technology/);
+  assert.match(html, /\/projects\/odissey\/odissey-home\.webp/);
+  assert.match(html, /Odissey Technology screenshots/);
+  assert.match(html, /Show Product detail/);
   assert.match(html, /\/profile\/david-sanchez\.webp/);
   assert.match(html, /David Sanchez · Full-stack developer/);
   assert.match(html, /Eter Perfume Catalog/);
@@ -63,6 +66,7 @@ test("keeps bilingual, theme, and responsive portfolio behavior", async () => {
   assert.match(page, /type Language = "en" \| "es"/);
   assert.match(page, /portfolio-language/);
   assert.match(page, /portfolio-theme/);
+  assert.match(page, /odissey-admin\.webp/);
   assert.match(page, /className="portrait-photo"/);
   assert.match(page, /Código privado · Disponible para conversar/);
   assert.match(page, /Checkout idempotente con reservas transaccionales/);
