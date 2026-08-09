@@ -42,7 +42,7 @@ test("server-renders David's portfolio and featured case studies", async () => {
   assert.match(html, /Show Weekly planner/);
   assert.match(html, /href="tel:\+573126485885"/);
   assert.match(html, /David-Sanchez-Tabarez-CV\.pdf/);
-  assert.match(html, /linkedin\.com\/in\/david-sanchez-tabarez/);
+  assert.match(html, /linkedin\.com\/in\/david-sanchez-tabarez-a25b7b1a8/);
   assert.doesNotMatch(html, /Task Manager API|task-manager-api/i);
   assert.doesNotMatch(
     html,

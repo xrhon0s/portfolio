@@ -10,7 +10,7 @@ const CONTACT = {
   email: "dsancheztaba66@gmail.com",
   phoneDisplay: "+57 312 648 5885",
   phoneHref: "tel:+573126485885",
-  linkedin: "https://www.linkedin.com/in/david-sanchez-tabarez/",
+  linkedin: "https://www.linkedin.com/in/david-sanchez-tabarez-a25b7b1a8/",
   cv: "/David-Sanchez-Tabarez-CV.pdf",
 };
 
