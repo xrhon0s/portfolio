@@ -156,7 +156,8 @@ a { text-decoration: none; }
 .contact-radar i:nth-child(2) { inset: 32%; }
 .contact-radar i:nth-child(3) { inset: 48%; background: #11110f; }
 .contact-inner { position: relative; text-align: center; }
-.contact-link { display: inline-block; margin-top: 42px; padding-bottom: 7px; border-bottom: 2px solid #11110f; font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 700; }
+.contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px 30px; margin-top: 42px; }
+.contact-link { display: inline-block; padding-bottom: 7px; border-bottom: 2px solid #11110f; font-size: clamp(.9rem, 1.55vw, 1.2rem); font-weight: 700; }
 .contact-footer { margin-top: 110px; padding-top: 22px; display: flex; justify-content: space-between; border-top: 1px solid rgba(17,17,15,.35); font: 600 .61rem/1.4 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .07em; text-align: left; }
 .contact-footer div { display: flex; gap: 28px; }
 

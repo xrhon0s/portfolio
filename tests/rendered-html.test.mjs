@@ -40,6 +40,9 @@ test("server-renders David's portfolio and featured case studies", async () => {
   assert.match(html, /nutriedu-home\.webp/);
   assert.match(html, /NutriEdu screenshots/);
   assert.match(html, /Show Weekly planner/);
+  assert.match(html, /href="tel:\+573126485885"/);
+  assert.match(html, /David-Sanchez-Tabarez-CV\.pdf/);
+  assert.match(html, /linkedin\.com\/in\/david-sanchez-tabarez/);
   assert.doesNotMatch(html, /Task Manager API|task-manager-api/i);
   assert.doesNotMatch(
     html,
@@ -65,6 +68,8 @@ test("keeps bilingual, theme, and responsive portfolio behavior", async () => {
   assert.match(page, /eter-admin-orders\.webp/);
   assert.match(page, /nutriedu-admin\.webp/);
   assert.match(page, /setActiveGallery/);
+  assert.match(page, /phoneDisplay: "\+57 312 648 5885"/);
+  assert.match(page, /cv: "\/David-Sanchez-Tabarez-CV\.pdf"/);
   assert.match(layout, /David Sanchez — Full Stack Developer/);
   assert.match(css, /:root\[data-theme="dark"\]/);
   assert.match(css, /@media \(max-width: 920px\)/);

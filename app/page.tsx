@@ -6,6 +6,14 @@ import Image from "next/image";
 type Language = "en" | "es";
 type Theme = "light" | "dark";
 
+const CONTACT = {
+  email: "dsancheztaba66@gmail.com",
+  phoneDisplay: "+57 312 648 5885",
+  phoneHref: "tel:+573126485885",
+  linkedin: "https://www.linkedin.com/in/david-sanchez-tabarez/",
+  cv: "/David-Sanchez-Tabarez-CV.pdf",
+};
+
 const projects = [
   {
     number: "01",
@@ -219,6 +227,8 @@ const copy = {
     intro: "I’m David Sanchez. I design and build responsive interfaces, reliable APIs, real-time products, and practical AI experiences.",
     explore: "Explore selected work",
     github: "GitHub profile",
+    cv: "Download CV",
+    phone: "Call me",
     photo: "David Sanchez · Full-stack developer",
     system: "Available",
     capabilities: ["React interfaces", "Node.js APIs", "AI integration", "Real-time products", "Clean architecture", "Responsive design"],
@@ -243,6 +253,7 @@ const copy = {
     english: "English — Intermediate",
     contactEyebrow: "Have a role or product in mind?",
     contactTitle: "Let’s create the next signal.",
+    contactCv: "Download CV",
     back: "Back to top",
     theme: "Toggle color theme",
     language: "Change language",
@@ -258,6 +269,8 @@ const copy = {
     intro: "Soy David Sanchez. Diseño y desarrollo interfaces responsive, APIs confiables, productos en tiempo real y experiencias prácticas con IA.",
     explore: "Explorar proyectos",
     github: "Perfil de GitHub",
+    cv: "Descargar CV",
+    phone: "Llamarme",
     photo: "David Sanchez · Desarrollador full-stack",
     system: "Disponible",
     capabilities: ["Interfaces React", "APIs con Node.js", "Integración de IA", "Productos en tiempo real", "Arquitectura limpia", "Diseño responsive"],
@@ -282,6 +295,7 @@ const copy = {
     english: "Inglés — Intermedio",
     contactEyebrow: "¿Tienes un rol o producto en mente?",
     contactTitle: "Creemos la próxima señal.",
+    contactCv: "Descargar CV",
     back: "Volver arriba",
     theme: "Cambiar tema de color",
     language: "Cambiar idioma",
@@ -333,7 +347,7 @@ export default function Home() {
           <button className="theme-toggle" onClick={toggleTheme} aria-label={t.theme} title={t.theme}>
             <span aria-hidden="true">{theme === "light" ? "◒" : "◐"}</span>
           </button>
-          <a className="nav-cta" href="mailto:dsancheztaba66@gmail.com">{t.nav.contact}</a>
+          <a className="nav-cta" href={`mailto:${CONTACT.email}`}>{t.nav.contact}</a>
         </div>
       </nav>
 
@@ -347,6 +361,7 @@ export default function Home() {
           <div className="hero-actions">
             <a className="button button-primary" href="#work">{t.explore} <span aria-hidden="true">↓</span></a>
             <a className="button button-quiet" href="https://github.com/xrhon0s" target="_blank" rel="noreferrer">{t.github} ↗</a>
+            <a className="button button-quiet" href={CONTACT.cv} download>{t.cv} ↓</a>
           </div>
         </div>
 
@@ -453,8 +468,12 @@ export default function Home() {
         <div className="shell contact-inner">
           <p className="eyebrow">{t.contactEyebrow}</p>
           <h2>{t.contactTitle}</h2>
-          <a className="contact-link" href="mailto:dsancheztaba66@gmail.com">dsancheztaba66@gmail.com <span aria-hidden="true">↗</span></a>
-          <div className="contact-footer"><span>David Sanchez Tabarez © 2026</span><div><a href="https://github.com/xrhon0s" target="_blank" rel="noreferrer">GitHub</a><a href="#top">{t.back} ↑</a></div></div>
+          <div className="contact-actions">
+            <a className="contact-link" href={`mailto:${CONTACT.email}`}>{CONTACT.email} <span aria-hidden="true">↗</span></a>
+            <a className="contact-link" href={CONTACT.phoneHref} aria-label={`${t.phone}: ${CONTACT.phoneDisplay}`}>{CONTACT.phoneDisplay} <span aria-hidden="true">↗</span></a>
+            <a className="contact-link" href={CONTACT.cv} download>{t.contactCv} <span aria-hidden="true">↓</span></a>
+          </div>
+          <div className="contact-footer"><span>David Sanchez Tabarez © 2026</span><div><a href="https://github.com/xrhon0s" target="_blank" rel="noreferrer">GitHub</a><a href={CONTACT.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href="#top">{t.back} ↑</a></div></div>
         </div>
       </section>
     </main>
