@@ -26,10 +26,6 @@ export const metadata: Metadata = {
   title: "David Sanchez — Full Stack Developer",
   description:
     "Portfolio of David Sanchez Tabarez, a full-stack developer building React, Node.js, real-time, and AI-powered products.",
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
   openGraph: {
     title: "David Sanchez — Full Stack Developer",
     description: "React, Node.js, real-time systems, and thoughtful AI integration.",

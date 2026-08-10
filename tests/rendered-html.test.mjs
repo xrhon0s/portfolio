@@ -21,6 +21,8 @@ test("server-renders David's portfolio and featured case studies", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>David Sanchez — Full Stack Developer<\/title>/i);
+  assert.match(html, /rel="icon" href="\/icon\?[^\"]+" type="image\/png"/i);
+  assert.match(html, /rel="apple-touch-icon" href="\/apple-icon\?[^\"]+"/i);
   assert.match(html, /Odissey Technology/);
   assert.match(html, /odissey-home\.webp/);
   assert.match(html, /Odissey Technology screenshots/);
