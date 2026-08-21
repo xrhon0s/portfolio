@@ -111,7 +111,13 @@ export default function CredentialsPage() {
         <Link className="wordmark" href="/" aria-label="David Sanchez, home">
           D<span>↗</span>S
         </Link>
-        <div className="credential-nav-title"><span>{t.back}</span><i /> <strong>{t.page}</strong></div>
+        <div className="credential-nav-title">
+          <Link className="credential-nav-back" href="/">
+            <span aria-hidden="true">←</span> {t.back}
+          </Link>
+          <i />
+          <strong>{t.page}</strong>
+        </div>
         <div className="nav-actions">
           <div className="language-switch" role="group" aria-label={t.language}>
             <button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")} aria-pressed={language === "en"}>EN</button>
@@ -147,9 +153,9 @@ export default function CredentialsPage() {
                   aria-valuemax={100}
                   aria-valuenow={credential.progress}
                 >
-                  <Image className="badge-layer badge-muted" src={credential.image} alt="" width={credential.width} height={credential.height} sizes="(max-width: 720px) 78vw, 360px" />
+                  <Image className="badge-layer badge-muted" src={credential.image} alt="" width={credential.width} height={credential.height} sizes="(max-width: 720px) 78vw, 360px" loading="eager" />
                   <div className="badge-fill" aria-hidden="true">
-                    <Image className="badge-layer" src={credential.image} alt="" width={credential.width} height={credential.height} sizes="(max-width: 720px) 78vw, 360px" />
+                    <Image className="badge-layer" src={credential.image} alt="" width={credential.width} height={credential.height} sizes="(max-width: 720px) 78vw, 360px" loading="eager" />
                   </div>
                 </div>
               </div>
