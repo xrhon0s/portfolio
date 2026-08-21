@@ -161,9 +161,52 @@ a { text-decoration: none; }
 .contact-footer { margin-top: 110px; padding-top: 22px; display: flex; justify-content: space-between; border-top: 1px solid rgba(17,17,15,.35); font: 600 .61rem/1.4 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .07em; text-align: left; }
 .contact-footer div { display: flex; gap: 28px; }
 
+.credentials-page { min-height: 100vh; padding-bottom: 38px; }
+.credential-nav-title { display: flex; align-items: center; gap: 12px; color: var(--muted); font: 600 .6rem/1 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .11em; }
+.credential-nav-title i { width: 24px; height: 1px; background: var(--line); }
+.credential-nav-title strong { color: var(--ink); }
+.credentials-hero { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; gap: 90px; align-items: end; padding-top: 108px; padding-bottom: 78px; }
+.credentials-hero::before { content: "LEARNING_PATH / 02"; position: absolute; right: 0; top: 28px; color: var(--muted); font: 600 .56rem/1 var(--font-geist-mono), monospace; letter-spacing: .12em; }
+.credentials-hero h1 { margin: 0; font-size: clamp(3.5rem, 7vw, 7.2rem); line-height: .86; letter-spacing: -.075em; font-weight: 580; }
+.credentials-hero h1 span { color: var(--paper); -webkit-text-stroke: 1.5px var(--ink); text-shadow: 4px 4px 0 var(--acid); }
+.credentials-intro { padding-bottom: 8px; }
+.credentials-intro > p { margin: 0 0 28px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+.credentials-intro > span { display: flex; align-items: flex-start; gap: 10px; color: var(--muted); font: 600 .62rem/1.55 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .055em; }
+.credentials-intro > span i { width: 9px; height: 9px; margin-top: 2px; flex: 0 0 auto; border-radius: 50%; background: var(--acid); box-shadow: 0 0 0 4px color-mix(in srgb, var(--acid) 18%, transparent); }
+.credential-list { display: grid; gap: 26px; }
+.credential-card { --credential-accent: var(--acid); display: grid; grid-template-columns: 64px minmax(300px, .9fr) minmax(380px, 1.1fr); min-height: 520px; border: 1px solid var(--ink); background: var(--surface); transition: transform .25s ease, box-shadow .25s ease; }
+.credential-card:hover { transform: translateY(-4px); box-shadow: 10px 10px 0 var(--credential-accent); }
+.credential-google { --credential-accent: var(--cyan); }
+.credential-index { display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 22px 0; border-right: 1px solid var(--ink); background: var(--credential-accent); color: #11110f; }
+.credential-index > span { font: 800 1rem/1 var(--font-geist-mono), monospace; }
+.credential-index small { writing-mode: vertical-rl; transform: rotate(180deg); font: 700 .54rem/1 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .13em; }
+.credential-art { position: relative; display: grid; place-items: center; overflow: hidden; padding: 48px; border-right: 1px solid var(--ink); background-color: var(--credential-accent); background-image: linear-gradient(rgba(17,17,15,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,15,.14) 1px, transparent 1px); background-size: 30px 30px; }
+.badge-progress { --badge-progress: 0%; position: relative; width: min(100%, 365px); aspect-ratio: 1; display: grid; place-items: center; filter: drop-shadow(11px 13px 0 rgba(17,17,15,.17)); }
+.badge-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.badge-muted { opacity: .16; filter: grayscale(1); }
+.badge-fill { position: absolute; inset: 0; overflow: hidden; clip-path: inset(calc(100% - var(--badge-progress)) 0 0 0); animation: reveal-badge 1.15s cubic-bezier(.22,.75,.24,1) both; }
+.badge-percentage { position: absolute; z-index: 3; right: 2px; bottom: 2px; display: grid; place-items: center; width: 66px; height: 66px; border: 2px solid #11110f; border-radius: 50%; background: var(--paper); color: var(--ink); box-shadow: 5px 5px 0 #11110f; font: 800 .78rem/1 var(--font-geist-mono), monospace; }
+@keyframes reveal-badge { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(calc(100% - var(--badge-progress)) 0 0 0); } }
+.credential-copy { display: flex; flex-direction: column; padding: clamp(36px, 5vw, 66px); }
+.credential-status { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+.credential-status span { padding: 7px 10px; border: 1px solid var(--ink); border-radius: 999px; font: 700 .57rem/1 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em; }
+.credential-status span.complete { background: var(--acid); color: #11110f; }
+.credential-status span.active { background: var(--cyan); color: #11110f; }
+.credential-status b { font: 800 1rem/1 var(--font-geist-mono), monospace; }
+.credential-issuer { margin: 0 0 12px; color: var(--muted); font: 650 .61rem/1.45 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .08em; }
+.credential-copy h2 { margin: 0; max-width: 620px; font-size: clamp(2rem, 3.5vw, 3.8rem); line-height: .96; letter-spacing: -.055em; }
+.credential-progress-copy { margin: 22px 0 25px; color: var(--muted); line-height: 1.6; }
+.credential-skills { display: flex; flex-wrap: wrap; gap: 7px; }
+.credential-skills span { padding: 7px 9px; border: 1px solid var(--line); font: 600 .57rem/1 var(--font-geist-mono), monospace; }
+.credential-link { align-self: flex-start; margin-top: auto; padding-top: 34px; padding-bottom: 4px; border-bottom: 1px solid var(--ink); font-size: .78rem; font-weight: 750; }
+.credential-pending { display: flex; align-items: center; gap: 9px; align-self: flex-start; margin-top: auto; padding-top: 34px; color: var(--muted); font: 650 .58rem/1.4 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .06em; }
+.credential-pending i { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px color-mix(in srgb, var(--cyan) 16%, transparent); }
+.credentials-footer { display: flex; justify-content: space-between; gap: 30px; margin-top: 72px; padding-top: 22px; border-top: 1px solid var(--line); font: 650 .61rem/1.4 var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .07em; }
+.credentials-footer a { padding-bottom: 3px; border-bottom: 1px solid var(--ink); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .capability-track, .ring-a, .ring-b, .scanner, .blink { animation: none; }
+  .capability-track, .ring-a, .ring-b, .scanner, .blink, .badge-fill { animation: none; }
 }
 
 @media (max-width: 920px) {
@@ -180,6 +223,11 @@ a { text-decoration: none; }
   .project-index { grid-row: span 2; }
   .project-content { grid-column: 2; min-height: 490px; }
   .details-section { grid-template-columns: 1fr; gap: 40px; }
+  .credentials-hero { grid-template-columns: 1fr; gap: 38px; }
+  .credential-card { grid-template-columns: 54px 1fr; }
+  .credential-index { grid-row: span 2; }
+  .credential-art { grid-column: 2; min-height: 430px; border-right: 0; border-bottom: 1px solid var(--ink); }
+  .credential-copy { grid-column: 2; min-height: 430px; }
 }
 
 @media (max-width: 540px) {
@@ -205,6 +253,17 @@ a { text-decoration: none; }
   .contact-section { padding-top: 90px; }
   .contact-footer { align-items: flex-end; gap: 22px; }
   .contact-footer div { flex-direction: column; gap: 8px; text-align: right; }
+  .credential-nav-title { display: none; }
+  .credentials-hero { padding-top: 86px; padding-bottom: 58px; }
+  .credentials-hero::before { display: none; }
+  .credentials-hero h1 { font-size: 3.55rem; }
+  .credential-card { grid-template-columns: 40px 1fr; }
+  .credential-art { min-height: 330px; padding: 28px 22px; }
+  .credential-copy { min-height: 0; padding: 34px 25px 38px; }
+  .badge-progress { width: min(100%, 290px); }
+  .badge-percentage { width: 56px; height: 56px; }
+  .credentials-footer { align-items: flex-end; }
+  .credentials-footer a { text-align: right; }
 }
 
 @media (max-width: 360px) {

@@ -227,6 +227,7 @@ const copy = {
     intro: "I’m David Sanchez. I design and build responsive interfaces, reliable APIs, real-time products, and practical AI experiences.",
     explore: "Explore selected work",
     github: "GitHub profile",
+    credentials: "View credentials",
     cv: "Download CV",
     phone: "Call me",
     photo: "David Sanchez · Full-stack developer",
@@ -269,6 +270,7 @@ const copy = {
     intro: "Soy David Sanchez. Diseño y desarrollo interfaces responsive, APIs confiables, productos en tiempo real y experiencias prácticas con IA.",
     explore: "Explorar proyectos",
     github: "Perfil de GitHub",
+    credentials: "Ver certificaciones",
     cv: "Descargar CV",
     phone: "Llamarme",
     photo: "David Sanchez · Desarrollador full-stack",
@@ -361,6 +363,7 @@ export default function Home() {
           <div className="hero-actions">
             <a className="button button-primary" href="#work">{t.explore} <span aria-hidden="true">↓</span></a>
             <a className="button button-quiet" href="https://github.com/xrhon0s" target="_blank" rel="noreferrer">{t.github} ↗</a>
+            <a className="button button-quiet" href="/credentials">{t.credentials} ↗</a>
             <a className="button button-quiet" href={CONTACT.cv} download>{t.cv} ↓</a>
           </div>
         </div>

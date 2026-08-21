@@ -14,6 +14,18 @@ async function render() {
   });
 }
 
+async function renderCredentials() {
+  const html = await readFile(
+    new URL("../.next/server/app/credentials.html", import.meta.url),
+    "utf8",
+  );
+
+  return new Response(html, {
+    status: 200,
+    headers: { "content-type": "text/html; charset=utf-8" },
+  });
+}
+
 test("server-renders David's portfolio and featured case studies", async () => {
   const response = await render();
   assert.equal(response.status, 200);
@@ -45,11 +57,29 @@ test("server-renders David's portfolio and featured case studies", async () => {
   assert.match(html, /href="tel:\+573126485885"/);
   assert.match(html, /David-Sanchez-Tabarez-CV\.pdf/);
   assert.match(html, /linkedin\.com\/in\/david-sanchez-tabarez-a25b7b1a8/);
+  assert.match(html, /href="\/credentials"/);
   assert.doesNotMatch(html, /Task Manager API|task-manager-api/i);
   assert.doesNotMatch(
     html,
     /github\.com\/xrhon0s\/(?:Odissey_Technology|Perfume_Catalog|noirvault)/i,
   );
+});
+
+test("renders verified credentials and an honest in-progress learning path", async () => {
+  const response = await renderCredentials();
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Credentials — David Sanchez<\/title>/i);
+  assert.match(html, /AWS Academy Graduate/);
+  assert.match(html, /aws-cloud-foundations\.png/);
+  assert.match(html, /credly\.com\/badges\/3aa1c966-742b-4cf1-b155-eb5ca014d5b7/);
+  assert.match(html, /Google Cybersecurity Professional Certificate/);
+  assert.match(html, /google-cybersecurity\.png/);
+  assert.match(html, /aria-valuenow="32"/);
+  assert.match(html, /Credential pending completion/);
+  assert.doesNotMatch(html, /property="og:image"/i);
+  assert.doesNotMatch(html, /name="twitter:image"/i);
 });
 
 test("keeps bilingual, theme, and responsive portfolio behavior", async () => {
