@@ -14,7 +14,6 @@ const CREDLY_URL =
 const credentials = [
   {
     id: "aws",
-    number: "01",
     title: "AWS Academy Graduate — Cloud Foundations",
     issuer: "Amazon Web Services Training and Certification",
     progress: 100,
@@ -22,11 +21,9 @@ const credentials = [
     width: 672,
     height: 352,
     href: CREDLY_URL,
-    skills: ["Cloud concepts", "AWS core services", "Security", "Architecture", "Pricing"],
   },
   {
     id: "google",
-    number: "02",
     title: "Google Cybersecurity Professional Certificate",
     issuer: "Google Career Certificates",
     progress: 32,
@@ -34,7 +31,6 @@ const credentials = [
     width: 680,
     height: 680,
     href: null,
-    skills: ["Security foundations", "Linux", "SQL", "Threat analysis", "Incident response"],
   },
 ] as const;
 
@@ -45,8 +41,8 @@ const copy = {
     theme: "Toggle color theme",
     language: "Change language",
     eyebrow: "VERIFIED LEARNING / ACTIVE PATH",
-    titleA: "Learning with",
-    titleB: "visible momentum.",
+    titleA: "Credentials &",
+    titleB: "continuous learning.",
     intro:
       "A transparent record of completed credentials and the skills I am actively developing next.",
     completed: "Completed",
@@ -54,8 +50,7 @@ const copy = {
     verified: "Verify on Credly",
     current: "Current progress",
     pending: "Credential pending completion",
-    skills: "Learning signals",
-    note: "The illuminated portion of each badge represents verified or completed progress.",
+    note: "Full color shows completed progress. The faded area is still in progress.",
     home: "Back to portfolio",
   },
   es: {
@@ -64,8 +59,8 @@ const copy = {
     theme: "Cambiar tema de color",
     language: "Cambiar idioma",
     eyebrow: "APRENDIZAJE VERIFICADO / RUTA ACTIVA",
-    titleA: "Aprendizaje con",
-    titleB: "avance visible.",
+    titleA: "Certificaciones y",
+    titleB: "aprendizaje continuo.",
     intro:
       "Un registro transparente de credenciales completadas y de las habilidades que estoy desarrollando actualmente.",
     completed: "Completado",
@@ -73,8 +68,7 @@ const copy = {
     verified: "Verificar en Credly",
     current: "Progreso actual",
     pending: "Credencial pendiente de finalización",
-    skills: "Señales de aprendizaje",
-    note: "La parte iluminada de cada insignia representa el progreso verificado o completado.",
+    note: "El color completo muestra el avance finalizado. El área tenue sigue en proceso.",
     home: "Volver al portafolio",
   },
 };
@@ -130,29 +124,20 @@ export default function CredentialsPage() {
       </nav>
 
       <header className="credentials-hero shell">
-        <div>
-          <p className="eyebrow">{t.eyebrow}</p>
-          <h1>{t.titleA}<br /><span>{t.titleB}</span></h1>
-        </div>
-        <div className="credentials-intro">
-          <p>{t.intro}</p>
-          <span><i aria-hidden="true" /> {t.note}</span>
-        </div>
+        <p className="eyebrow">{t.eyebrow}</p>
+        <h1>{t.titleA} <span>{t.titleB}</span></h1>
+        <p className="credentials-intro">{t.intro}</p>
+        <p className="credentials-legend"><i aria-hidden="true" /> {t.note}</p>
       </header>
 
-      <section className="credential-list shell" aria-label={t.page}>
+      <section className="credential-showcase shell" aria-label={t.page}>
         {credentials.map((credential) => {
           const isComplete = credential.progress === 100;
           const progressStyle = { "--badge-progress": `${credential.progress}%` } as CSSProperties;
 
           return (
-            <article className={`credential-card credential-${credential.id}`} key={credential.id}>
-              <div className="credential-index">
-                <span>{credential.number}</span>
-                <small>{isComplete ? t.completed : t.inProgress}</small>
-              </div>
-
-              <div className="credential-art">
+            <article className={`credential-tile credential-${credential.id}`} key={credential.id}>
+              <div className="credential-badge-stage">
                 <div
                   className="badge-progress"
                   style={progressStyle}
@@ -166,18 +151,14 @@ export default function CredentialsPage() {
                   <div className="badge-fill" aria-hidden="true">
                     <Image className="badge-layer" src={credential.image} alt="" width={credential.width} height={credential.height} sizes="(max-width: 720px) 78vw, 360px" />
                   </div>
-                  <span className="badge-percentage">{credential.progress}%</span>
                 </div>
               </div>
 
-              <div className="credential-copy">
+              <div className="credential-summary">
                 <div className="credential-status"><span className={isComplete ? "complete" : "active"}>{isComplete ? t.completed : t.inProgress}</span><b>{credential.progress}%</b></div>
                 <p className="credential-issuer">{credential.issuer}</p>
                 <h2>{credential.title}</h2>
                 <p className="credential-progress-copy">{isComplete ? t.completed : `${t.current}: ${credential.progress}% · ${t.pending}`}</p>
-                <div className="credential-skills" aria-label={t.skills}>
-                  {credential.skills.map((skill) => <span key={skill}>{skill}</span>)}
-                </div>
                 {credential.href ? (
                   <a className="credential-link" href={credential.href} target="_blank" rel="noreferrer">{t.verified} <span aria-hidden="true">↗</span></a>
                 ) : (
